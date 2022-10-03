@@ -34,11 +34,11 @@ public void search_for_movie_in_imbd(String str) {
 @When("Get release date & country in IMBD")
 public void get_release_date_country_in_imbd() {
 	// get release date
-				imbdDate=imd.releaseDate.getText();
-				System.out.println("Release Date:"+imbdDate);
-				// get country
-				imbdCountry=imd.country.getText();
-				System.out.println("Release Date:"+imbdCountry);
+	imbdDate=imd.releaseDate.getText();
+	System.out.println("Release Date:"+imbdDate);
+	// get country
+	imbdCountry=imd.country.getText();
+	System.out.println("Release Country:"+imbdCountry);
    
 }
 
@@ -59,22 +59,15 @@ public void get_release_date_country_in_wiki() {
 	wikiDate=wiki.releaseDate.getText();
 	System.out.println("Release Date:"+wikiDate);
 	wikiCountry=wiki.country.getText();
-	System.out.println(wikiDate);
+	System.out.println("Release Country:"+wikiCountry);
 }
 
 @Then("Verify the movie Details in Both IMBD and WIKI")
-public void verify_the_movie_details_in_both_imbd_and_wiki() {
-	try {
-		assertEquals(imbdDate,wikiDate);
-		assertEquals(imbdCountry,wikiCountry);
-		Thread.sleep(3000);
-		}
-	catch (Exception e) 
-	{
-		 System.out.println(e);
-		 Assert.fail();
-		 
-	}	
+public void verify_the_movie_details_in_both_imbd_and_wiki() throws Exception {
+	
+	assertEquals(imbdDate,wikiDate);
+	assertEquals(imbdCountry,wikiCountry);
+	
   
 }
 
